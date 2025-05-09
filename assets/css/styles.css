@@ -1,894 +1,993 @@
 /*=============== GOOGLE FONTS ===============*/
+/* Importing the Montserrat font family from Google Fonts in varying weights (100 to 900) for use throughout the site */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
+/* Defining CSS variables for theme customization, including header height, colors, font sizes, font weights, and z-index levels */
 :root {
-  --header-height: 3.5rem;
+  --header-height: 3.5rem; /* Height of the header */
 
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(43, 90%, 50%);
-  --first-color-alt: hsl(43, 88%, 48%);
-  --text-color: hsl(0, 0%, 42%);
-  --text-color-lighten: hsl(0, 0%, 92%);
-  --black-color: hsl(0, 0%, 8%);
-  --white-color: hsl(0, 0%, 100%);
-  --body-color: hsl(0, 0%, 98%);
-  --body-second-color: hsl(25, 70%, 55%);
-  --shadow-img: -8px 8px 16px hsla(0, 0%, 0%, .2);
+  /* Color values defined in HSL format (hue, saturation, lightness) */
+  --first-color: hsl(43, 90%, 50%); /* Main accent color */
+  --first-color-alt: hsl(43, 88%, 48%); /* Alternative accent color */
+  --text-color: hsl(0, 0%, 42%); /* Main text color */
+  --text-color-lighten: hsl(0, 0%, 92%); /* Lightened variant of text color */
+  --black-color: hsl(0, 0%, 8%); /* Dark color for elements */
+  --white-color: hsl(0, 0%, 100%); /* Light color for elements */
+  --body-color: hsl(0, 0%, 98%); /* Background color for the body */
+  --body-second-color: hsl(25, 70%, 55%); /* Secondary background color */
+  --shadow-img: -8px 8px 16px hsla(0, 0%, 0%, .2); /* Shadow effect for images */
 
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Montserrat", sans-serif;
-  --biggest-font-size: 4.5rem;
-  --big-font-size: 2.5rem;
-  --h1-font-size: 1.5rem;
-  --h2-font-size: 1.25rem;
-  --h3-font-size: 1rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
+  /* Font families and sizes defined in rem units (1rem = 16px) */
+  --body-font: "Montserrat", sans-serif; /* Primary font for the body */
+  --biggest-font-size: 4.5rem; /* Largest font size */
+  --big-font-size: 2.5rem; /* Large font size for headers */
+  --h1-font-size: 1.5rem; /* Font size for H1 headings */
+  --h2-font-size: 1.25rem; /* Font size for H2 headings */
+  --h3-font-size: 1rem; /* Font size for H3 headings */
+  --normal-font-size: .938rem; /* Standard font size for text */
+  --small-font-size: .813rem; /* Font size for smaller text */
+  --smaller-font-size: .75rem; /* Font size for the smallest text */
 
   /*========== Font weight ==========*/
-  --font-regular: 400;
-  --font-semi-bold: 600;
-  --font-bold: 700;
-  --font-extra-bold: 800;
+  /* Standard font weights for typography */
+  --font-regular: 400; /* Normal font weight */
+  --font-semi-bold: 600; /* Semi bold weight for emphasis */
+  --font-bold: 700; /* Bold weight for strong emphasis */
+  --font-extra-bold: 800; /* Extra bold weight for titles */
 
   /*========== z index ==========*/
-  --z-tooltip: 10;
-  --z-fixed: 100;
+  /* Defined z-index levels for layering elements */
+  --z-tooltip: 10; /* Z-index for tooltips */
+  --z-fixed: 100; /* Z-index for fixed elements like header */
 }
 
 /*========== Responsive typography ==========*/
+/* Media query to adjust font sizes for larger screens (min-width: 1150px) */
 @media screen and (min-width: 1150px) {
   :root {
-    --biggest-font-size: 10.5rem;
-    --big-font-size: 5.5rem;
-    --h1-font-size: 3rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
+    --biggest-font-size: 10.5rem; /* Increased size for biggest font */
+    --big-font-size: 5.5rem; /* Increased size for big font */
+    --h1-font-size: 3rem; /* Increased H1 size */
+    --h2-font-size: 1.5rem; /* Increased H2 size */
+    --h3-font-size: 1.25rem; /* Increased H3 size */
+    --normal-font-size: 1rem; /* Increased normal font size */
+    --small-font-size: .875rem; /* Increased small font size */
+    --smaller-font-size: .813rem; /* Increased smaller font size */
   }
 }
 
 /*=============== BASE ===============*/
+/* Universal styles applied to all elements */
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box; /* Ensures that padding and border are included in the total width and height */
+  padding: 0; /* Resetting default padding */
+  margin: 0; /* Resetting default margin */
 }
 
+/* Base styles for the html and body */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling effect for anchor links */
 }
 
 body,
 input,
 button {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
+  font-family: var(--body-font); /* Applying the primary body font */
+  font-size: var(--normal-font-size); /* Standard font size for body text */
 }
 
 body {
-  background-color: var(--body-color);
-  color: var(--black-color);
+  background-color: var(--body-color); /* Applying the body background color */
+  color: var(--black-color); /* Applying primary text color */
 }
 
+/* Styles for input fields and buttons */
 input,
 button {
-  border: none;
-  outline: none;
+  border: none; /* Resetting border style */
+  outline: none; /* Removing outline on focus */
 }
 
+/* Heading styles */
 h1, h2, h3, h4 {
-  font-weight: var(--font-bold);
+  font-weight: var(--font-bold); /* Applying bold font weight to all headings */
 }
 
+/* List styles */
 ul {
-  list-style: none;
+  list-style: none; /* Removing default list styling */
 }
 
+/* Anchor link styles */
 a {
-  text-decoration: none;
+  text-decoration: none; /* Removing underline from anchor links */
 }
 
+/* Image styles */
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  display: block; /* Block display for images */
+  max-width: 100%; /* Responsive image resizing */
+  height: auto; /* Maintaining aspect ratio */
 }
 
+/* Video styles */
 video {
-  max-width: 100%;
+  max-width: 100%; /* Responsive resizing for videos */
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
+/* Container class for maximum width and margin */
 .container {
-  max-width: 1120px;
-  margin-inline: 1.5rem;
+  max-width: 1120px; /* Maximum width for container */
+  margin-inline: 1.5rem; /* Horizontal margin for responsiveness */
 }
 
+/* Grid class for creating a grid layout */
 .grid {
-  display: grid;
-  gap: 1.5rem;
+  display: grid; /* Using CSS Grid for layout */
+  gap: 1.5rem; /* Spacing between grid items */
 }
 
+/* Section spacing class */
 .section {
-  padding-block: 5rem 1rem;
+  padding-block: 5rem 1rem; /* Vertical padding for sections */
 }
 
+/* Section title and subtitle alignment */
 .section__title, 
 .section__subtitle {
-  text-align: center;
+  text-align: center; /* Centering text for titles and subtitles */
 }
 
+/* Styles for section title */
 .section__title {
-  font-size: var(--h1-font-size);
-  font-weight: var(--font-extra-bold);
-  color: var(--black-color);
-  margin-bottom: 3rem;
+  font-size: var(--h1-font-size); /* Font size from variables */
+  font-weight: var(--font-extra-bold); /* Extra bold weight for section titles */
+  color: var(--black-color); /* Title color */
+  margin-bottom: 3rem; /* Margin below title */
 }
 
+/* Styles for section subtitle */
 .section__subtitle {
-  display: block;
-  font-size: var(--small-font-size);
-  font-weight: var(--font-semi-bold);
-  color: var(--text-color);
-  margin-bottom: .5rem;
+  display: block; /* Subtitle as block element */
+  font-size: var(--small-font-size); /* Font size from variables */
+  font-weight: var(--font-semi-bold); /* Semi-bold subtitle */
+  color: var(--text-color); /* Color of the subtitle */
+  margin-bottom: .5rem; /* Margin below subtitle */
 }
 
 .main {
-  overflow: hidden;
+  overflow: hidden; /* Hiding overflow for main layout */
 }
 
 /*=============== HEADER & NAV ===============*/
-.header{
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  z-index: var(--z-fixed);
-  transition: background-color .4s, box-shadow .4s;
+/* Header styles */
+.header {
+  position: fixed; /* Fixed positioning at the top of the viewport */
+  width: 100%; /* Full width header */
+  top: 0; /* Positioning from the top */
+  left: 0; /* Positioning from the left */
+  background-color: transparent; /* Initial background transparent */
+  z-index: var(--z-fixed); /* Layer above other content */
+  transition: background-color .4s, box-shadow .4s; /* Smooth transition effects */
 }
 
-.nav{
-  position: relative;
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Navigation styles */
+.nav {
+  position: relative; /* Relative positioning for navigation bar */
+  height: var(--header-height); /* Height from variable */
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space distribution between items */
+  align-items: center; /* Centering items vertically */
 }
 
-.nav__logo{
-  color: var(--black-color);
-  font-weight: var(--font-bold);
+/* Logo styling in navigation */
+.nav__logo {
+  color: var(--black-color); /* Color for logo */
+  font-weight: var(--font-bold); /* Bold font for logo */
 }
 
+/* Toggle button styles for mobile navigation */
 .nav__toggle,
-.nav close{
-  display: inline-flex;
-  font-size: 1.5rem;
-  cursor: pointer;
+.nav__close {
+  display: inline-flex; /* Inline flexible display */
+  font-size: 1.5rem; /* Font size for toggle button */
+  cursor: pointer; /* Pointer cursor for interaction */
 }
 
-/* Navigation for mobile devices */
-@media screen and (max-width: 1150px){
-  .nav__menu{
-    position: fixed;
-    top: -120%;
-    left: 0;
-    background-color: var(--body-color);
-    width: 100%;
-    padding-block: 4rem;
-    box-shadow: 0 4px 16px hsla(0, 0%, 0%, .1);
-    transition: top .4s;
+/* mobile navigation menu styles */
+@media screen and (max-width: 1150px) {
+  .nav__menu {
+    position: fixed; /* Fixed position for mobile menu */
+    top: -120%; /* Initial hidden position */
+    left: 0; /* Align to the left */
+    background-color: var(--body-color); /* Background color from variable */
+    width: 100%; /* Full width for menu */
+    padding-block: 4rem; /* Padding around menu items */
+    box-shadow: 0 4px 16px hsla(0, 0%, 0%, .1); /* Shadow effect on menu */
+    transition: top .4s; /* Animation for menu showing */
   }
 }
 
-.nav__list{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
+/* Navigation list styles */
+.nav__list {
+  text-align: center; /* Centering navigation items */
+  display: flex; /* Flexbox display for navigation items */
+  flex-direction: column; /* Column layout */
+  row-gap: 1.5rem; /* Space between items */
 }
 
-.nav__link{
-  position: relative;
-  color: var(--black-color);
-  font-weight: var(--font-semi-bold);
+/* Navigation link styles */
+.nav__link {
+  position: relative; /* Relative position for after pseudo-element */
+  color: var(--black-color); /* Link color */
+  font-weight: var(--font-semi-bold); /* Semi bold weight for links */
 }
 
-.nav__link::after{
-  content:'';
-  width: 0%;
-  height: 2px;
-  background-color: var(--black-color);
-  position: absolute;
-  left: 0;
-  bottom: -.5rem;
-  transition: width .4s;
+/* Underline effect for hover state on links */
+.nav__link::after {
+  content: ''; /* Empty content for pseudo-element */
+  width: 0%; /* Start with no width for animation */
+  height: 2px; /* Height of underline */
+  background-color: var(--black-color); /* Color of the underline */
+  position: absolute; /* Absolute position to place underline */
+  left: 0; /* Align to the left */
+  bottom: -.5rem; /* Positioning below text */
+  transition: width .4s; /* Smooth width transition */
 }
 
-.nav__link:hover::after{
-  width: 60%;
+/* Hover effect expanding underline on links */
+.nav__link:hover::after {
+  width: 60%; /* Expanding width on hover */
 }
 
-.nav__close{
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+/* Close button styles in mobile navigation */
+.nav__close {
+  position: absolute; /* Absolute positioning for placement */
+  top: 1rem; /* Placement from top */
+  right: 1.5rem; /* Placement from right */
 }
 
-/* Show menu */
-.show-menu{
-  top: 0;
+/* Show menu class to activate menu display */
+.show-menu {
+  top: 0; /* Position menu to its original position to show */
 }
 
-/* Change background header */
-.bg-header{
-  background-color: var(--body-color);
-  box-shadow: 0 0px 16px hsla(0, 0%, 0%, .1);
+/* Class for changing header background when scrolled */
+.bg-header {
+  background-color: var(--body-color); /* Background color on scroll */
+  box-shadow: 0 0px 16px hsla(0, 0%, 0%, .1); /* Shadow effect on scroll */
 }
 
-/* Active link */
-.active-link::after{
-  width: 60%;
+/* Active link underline effect */
+.active-link::after {
+  width: 60%; /* Making active link underline visible */
 }
 
 /*=============== HOME ===============*/
-.home{
-  position: relative;
-  height: 730px;
-  background-color: var(--body-second-color);
+/* Styles for home section */
+.home {
+  position: relative; /* Relative positioning for layering */
+  height: 730px; /* Fixed height for home section */
+  background-color: var(--body-second-color); /* Background color for home section */
 }
 
+/* Background and gradient for home section */
 .home__bg,
-.home__gradient{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.home__gradient {
+  position: absolute; /* Absolute positioning for full coverage */
+  top: 0; /* Starting from top */
+  left: 0; /* Starting from left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
 }
 
- .home__bg{
-  object-fit: cover;
-  object-position: center;
- }
+/* Styles for background image in home section */
+.home__bg {
+  object-fit: cover; /* Cover the area with the image maintaining aspect ratio */
+  object-position: center; /* Centering image */
+}
 
- .home__gradient{
+/* Gradient effect for home section */
+.home__gradient {
   background: linear-gradient(180deg,
   hsla(25, 70%, 55%, 0) 80%,
-  hsl(25, 70%, 55%) 100%);
- }
-
- .home__data{
-  position: absolute;
-  top: 17rem;
-  justify-self: center;
-  text-align: center;
- }
-
- .home__subtitle{
-  font-size: var(--small-font-size);
-  font-weight: var(--font-semi-bold);
-  letter-spacing: 1px;
-  margin-bottom: .25rem;
- }
-
- .home__title{
-  font-size: var(--big-font-size);
-  font-weight: var(--font-extra-bold);
-  letter-spacing: 2px;
-  color: var(--white-color);
- }
-
- .home__button{
-  position: absolute;
-  bottom: 5rem;
-  justify-self: center;
-  color: var(--white-color);
-  width: 94px;
-  height: 94px;
-  border: 2px solid var(--white-color);
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  padding-top: 1rem;
-  z-index: 5;
- }
-
- .home__button span{
-  font-weight: var(--font-semi-bold);
- }
-
- .home__button i{
-  font-size: 1.5rem;
- }
-
- .home__swiper{
-  position: relative;
- }
-
- .home__img{
-  width: 300px;
-  margin-inline: auto;
- }
-
-/* Swiper class */
-.swiper{
-  margin-inline: initial;
-  align-self: center;
-  margin-bottom: 1rem;
+  hsl(25, 70%, 55%) 100%); /* Gradient background from transparent to color */
 }
 
-.swiper-pagination-bullets.swiper-pagination-horizontal{
-  height: max-content;
-  top: 30rem;
-  display: flex;
-  justify-content: center;
-  column-gap: 1.5rem;
+/* Data and content positioning for home section */
+.home__data {
+  position: absolute; /* Absolute positioning for centered content */
+  top: 17rem; /* Distance from top */
+  justify-self: center; /* Centering horizontally */
+  text-align: center; /* Centering text within the container */
 }
 
-.swiper-pagination-bullet{
-  color: var(--white-color);
-  opacity: 1;
-  background: none;
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-semi-bold);
-  transition: color .4s;
+/* Styles for subtitle in home section */
+.home__subtitle {
+  font-size: var(--small-font-size); /* Font size from variables */
+  font-weight: var(--font-semi-bold); /* Semi bold weight */
+  letter-spacing: 1px; /* Spacing between letters */
+  margin-bottom: .25rem; /* Margin below subtitle */
 }
 
-.swiper-pagination-bullet-active{
-  color: var(--black-color);
+/* Styles for title in home section */
+.home__title {
+  font-size: var(--big-font-size); /* Font size from variables */
+  font-weight: var(--font-extra-bold); /* Extra bold weight */
+  letter-spacing: 2px; /* Increased letter spacing */
+  color: var(--white-color); /* White color for title */
+}
+
+/* Button styles in home section */
+.home__button {
+  position: absolute; /* Absolute positioning */
+  bottom: 5rem; /* Distance from bottom */
+  justify-self: center; /* Centering the button */
+  color: var(--white-color); /* Color of the button text */
+  width: 94px; /* Width of the button */
+  height: 94px; /* Height of the button */
+  border: 2px solid var(--white-color); /* Border color */
+  border-radius: 50%; /* Circular button */
+  display: grid; /* Grid display for centering */
+  place-content: center; /* Centering content */
+  text-align: center; /* Centering text inside */
+  padding-top: 1rem; /* Padding on top for content spacing */
+  z-index: 5; /* Layering the button above other content */
+}
+
+/* Styles for button text */
+.home__button span {
+  font-weight: var(--font-semi-bold); /* Semi bold weight for button text */
+}
+
+/* Styles for icons inside button */
+.home__button i {
+  font-size: 1.5rem; /* Font size for icons */
+}
+
+/* Styles for Swiper component in home section */
+.home__swiper {
+  position: relative; /* Relative positioning for layering */
+}
+
+/* Image styles in home section */
+.home__img {
+  width: 300px; /* Fixed width for the image */
+  margin-inline: auto; /* Centering horizontally with margin */
+}
+
+/* Swiper component styles */
+.swiper {
+  margin-inline: initial; /* Initial margin for swiper */
+  align-self: center; /* Centering within flex or grid */
+  margin-bottom: 1rem; /* Spacing below Swiper */
+}
+
+/* Pagination bullet styles for swiper */
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  height: max-content; /* Adjusting height to content */
+  top: 30rem; /* Position from top */
+  display: flex; /* Flexbox for alignment */
+  justify-content: center; /* Centering bullets */
+  column-gap: 1.5rem; /* Space between pagination bullets */
+}
+
+.swiper-pagination-bullet {
+  color: var(--white-color); /* Color of pagination bullets */
+  opacity: 1; /* Fully visible bullets */
+  background: none; /* No background */
+  font-size: var(--normal-font-size); /* Font size for bullets */
+  font-weight: var(--font-semi-bold); /* Semi-bold weight for bullets */
+  transition: color .4s; /* Transition effect for color change */
+}
+
+/* Active pagination bullet style */
+.swiper-pagination-bullet-active {
+  color: var(--black-color); /* Color for active bullet */
 }
 
 /*=============== BUTTON ===============*/
-.button{
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: .5rem;
-  background-color: var(--first-color);
-  color: var(--black-color);
-  padding: .75rem 2rem;
-  font-weight: var(--font-semi-bold);
-  box-shadow: 0 4px 12px hsla(43, 88%, 32%, .4);
+/* General button styles */
+.button {
+  display: inline-flex; /* Inline and flexible display */
+  justify-content: center; /* Centering content */
+  align-items: center; /* Aligning items in center */
+  column-gap: .5rem; /* Space between icon and text */
+  background-color: var(--first-color); /* Background from first color variable */
+  color: var(--black-color); /* Text color */
+  padding: .75rem 2rem; /* Padding for button */
+  font-weight: var(--font-semi-bold); /* Semi-bold font weight */
+  box-shadow: 0 4px 12px hsla(43, 88%, 32%, .4); /* Box shadow for button effect */
 }
 
-.button i{
-  font-weight: initial;
-  font-size: 1.5rem;
-  transition: transform .4s;
+/* Button icon styles */
+.button i {
+  font-weight: initial; /* Normal weight for icon */
+  font-size: 1.5rem; /* Font size for icon */
+  transition: transform .4s; /* Transition for hover effect */
 }
 
-.button:hover i{
-  transform: translateX(.5rem);
+/* Hover effect on button icons */
+.button:hover i {
+  transform: translateX(.5rem); /* Moving icon to the right on hover */
 }
 
-.button__ghost{
-  background-color: transparent;
-  box-shadow: none;
-  border: 2px solid var(--white-color);
-  color: var(--white-color);
+/* Ghost button styles (transparent variant) */
+.button__ghost {
+  background-color: transparent; /* Transparent background for ghost button */
+  box-shadow: none; /* No shadow for ghost button */
+  border: 2px solid var(--white-color); /* Border color for ghost button */
+  color: var(--white-color); /* Text color for ghost button */
 }
 
 /*=============== ABOUT ===============*/
-.about{
-  background-color: var(--body-second-color);
+/* Styling for about section */
+.about {
+  background-color: var(--body-second-color); /* Background color from variable */
 }
 
-.about__container{
-  padding-bottom: 3rem;
-  row-gap: 3rem;
+/* Container styles in about section */
+.about__container {
+  padding-bottom: 3rem; /* Padding below container */
+  row-gap: 3rem; /* Space between rows */
 }
 
-.about__title{
-  color: var(--white-color);
-  margin-bottom: 1rem;
+/* Styles for title in about section */
+.about__title {
+  color: var(--white-color); /* Title color */
+  margin-bottom: 1rem; /* Margin below title */
 }
 
-.about__title span{
-  color: var(--black-color);
+/* Span styling within title for differentiation */
+.about__title span {
+  color: var(--black-color); /* Color for span in title */
 }
 
-.about__data{
-  text-align: center;
+/* Centering data within about section */
+.about__data {
+  text-align: center; /* Centering text */
 }
 
-.about__description{
-  margin-bottom: 1.5rem;
-  color: var(--white-color);
+/* Styles for description text in about section */
+.about__description {
+  margin-bottom: 1.5rem; /* Margin below description */
+  color: var(--white-color); /* Color for description */
 }
 
-.about__video{
-  position: relative;
-  width: 250px;
-  height: 320px;
-  justify-self: center;
-  box-shadow: var(--shadow-img);
-  transform: skew(-12deg);
-  display: grid;
-  overflow: hidden;
+/* Video container styles in about section */
+.about__video {
+  position: relative; /* Relative positioning */
+  width: 250px; /* Fixed width */
+  height: 320px; /* Fixed height */
+  justify-self: center; /* Centering */
+  box-shadow: var(--shadow-img); /* Shadow effect */
+  transform: skew(-12deg); /* Skew effect for aesthetic */
+  display: grid; /* Grid display for layout */
+  overflow: hidden; /* Hiding overflow content */
 }
 
-.about__file{
-  max-width: initial;
-  height: 320px;
-  transform: skew(12deg);
-  position: absolute;
-  justify-self: center;
+/* File container styles in about section */
+.about__file {
+  max-width: initial; /* No constraints on width */
+  height: 320px; /* Fixed height */
+  transform: skew(12deg); /* Inverse skew effect */
+  position: absolute; /* Absolute positioning for layering */
+  justify-self: center; /* Centering */
 }
 
 /*=============== MODELS ===============*/
-.models__container{
-  grid-template-columns: 250px;
-  justify-content: center;
-  row-gap: 2rem;
+/* Container for models section */
+.models__container {
+  grid-template-columns: 250px; /* Single-column layout for models */
+  justify-content: center; /* Centering content */
+  row-gap: 2rem; /* Vertical spacing between models */
 }
 
-.models__card{
-  position: relative;
-  transform: skew(-12deg);
-  box-shadow: var(--shadow-img);
+/* Styles for each model card */
+.models__card {
+  position: relative; /* Relative positioning for layering */
+  transform: skew(-12deg); /* Aesthetic skew for cards */
+  box-shadow: var(--shadow-img); /* Shadow effect for cards */
 }
 
-.models__gradient{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Gradient overlay for model card */
+.models__gradient {
+  position: absolute; /* Overlaying effect */
+  top: 0; /* Positioning from top */
+  left: 0; /* Positioning from left */
+  width: 100%; /* Full coverage */
+  height: 100%; /* Full coverage */
   background: linear-gradient(180deg,
   hsla(0, 0%, 0%, 0) 70%,
-  hsl(0, 0%, 0%) 100%);
+  hsl(0, 0%, 0%) 100%); /* Gradient effect from transparent to black */
 }
 
-.models__data{
-  position: absolute;
-  bottom: 1rem;
-  left: 1.5rem;
-  color: var(--white-color);
-  transform: skew(12deg);
+/* Data container for model information */
+.models__data {
+  position: absolute; /* Overlaying position */
+  bottom: 1rem; /* Positioning from bottom */
+  left: 1.5rem; /* Positioning from left */
+  color: var(--white-color); /* Color for model text */
+  transform: skew(12deg); /* Aesthetic skew for text */
 }
 
-.models__name{
-  font-size: var(--h3-font-size);
-  margin-bottom: .25rem;
-  transition: transform .4s, opacity .4s;
+/* Styling for model names */
+.models__name {
+  font-size: var(--h3-font-size); /* Font size for model names */
+  margin-bottom: .25rem; /* Margin below name */
+  transition: transform .4s, opacity .4s; /* Transition effects for hover */
 }
 
-.models__info{
-  display: block;
-  font-size: var(--small-font-size);
-  transition: transform .4s .1s, opacity .4s .1s;
+/* Styling for model info text */
+.models__info {
+  display: block; /* Block display for model info */
+  font-size: var(--small-font-size); /* Font size for model info */
+  transition: transform .4s .1s, opacity .4s .1s; /* Delayed transition effects */
 }
 
+/* Initial hidden state for name and info with transitions */
 .models__name,
-.models__info{
-  transform: translateX(5rem);
-  opacity: 0;
+.models__info {
+  transform: translateX(5rem); /* Initial position off to the right */
+  opacity: 0; /* Initially hidden */
 }
 
-.models__card:hover :is(.models__name, .models__info){
-  transform: translateX(0);
-  opacity: 1;
+/* Hover effect to reveal model name and info */
+.models__card:hover :is(.models__name, .models__info) {
+  transform: translateX(0); /* Reset to original position */
+  opacity: 1; /* Fade in text on hover */
 }
 
 /*=============== INFO ===============*/
-.info__container{
-  row-gap: 3.5rem;
-  padding-bottom: 2.5rem;
+/* Container for info section */
+.info__container {
+  row-gap: 3.5rem; /* Spacing between info items */
+  padding-bottom: 2.5rem; /* Padding at the bottom */
 }
 
-.info__title{
-  margin-bottom: 5.5rem;
+/* Title styles in info section */
+.info__title {
+  margin-bottom: 5.5rem; /* Margin below title */
 }
 
-.info__content{
-  position: relative;
-  display: grid;
+/* Content styles within info section */
+.info__content {
+  position: relative; /* Relative positioning for layering */
+  display: grid; /* Using grid display for layout */
 }
 
-.info__number{
-  font-size: var(--biggest-font-size);
-  color: var(--text-color-lighten);
-  position: absolute;
-  top: -3.5rem;
-  justify-self: center;
+/* Number styling in info section */
+.info__number {
+  font-size: var(--biggest-font-size); /* Large font size for prominent numbers */
+  color: var(--text-color-lighten); /* Color for number */
+  position: absolute; /* Absolute positioning for styling */
+  top: -3.5rem; /* Position above content */
+  justify-self: center; /* Centering */
 }
 
-.info__img{
-  width: 300px;
-  justify-self: center;
-  z-index: 5;
+/* Image styling within info section */
+.info__img {
+  width: 300px; /* Fixed width for info image */
+  justify-self: center; /* Centering image */
+  z-index: 5; /* Layer above other content */
 }
 
-.info__data{
-  display: flex;
-  justify-content: center;
-  column-gap: 1rem;
+/* Data alignment for info section */
+.info__data {
+  display: flex; /* Flexbox for layout */
+  justify-content: center; /* Centering data */
+  column-gap: 1rem; /* Space between info items */
 }
 
-.info__group h3{
-  font-size: var(--small-font-size);
-  margin-bottom: .5rem;
+/* Styling for grouped info elements */
+.info__group h3 {
+  font-size: var(--small-font-size); /* Font size for grouped headers */
+  margin-bottom: .5rem; /* Margin below header */
 }
 
-.info__group p{
-  font-size: var(--smaller-font-size);
-  color: var(--text-color);
-  text-align: center;
+/* Paragraph styling within grouped info */
+.info__group p {
+  font-size: var(--smaller-font-size); /* Font size for paragraphs */
+  color: var(--text-color); /* Text color */
+  text-align: center; /* Centering text in paragraphs */
 }
 
 /*=============== CONTACT ===============*/
-.contact{
-  background-color: var(--body-second-color);
+/* Styles for contact section */
+.contact {
+  background-color: var(--body-second-color); /* Background color from variable */
 }
 
-.contact__container{
-  row-gap: 3rem;
-  padding-bottom: 2rem;
+/* Container styling for contact section */
+.contact__container {
+  row-gap: 3rem; /* Spacing between items */
+  padding-bottom: 2rem; /* Padding at the bottom */
 }
 
-.contact__title{
-  color: var(--white-color);
-  margin-bottom: 4rem;
+/* Title styles for contact section */
+.contact__title {
+  color: var(--white-color); /* White color for title */
+  margin-bottom: 4rem; /* Margin below title */
 }
 
-.contact__form{
-  row-gap: 2rem;
+/* Form container in contact section */
+.contact__form {
+  row-gap: 2rem; /* Spacing between form items */
 }
 
-.contact__inputs{
-  row-gap: 2.5rem;
+/* Inputs container in contact section */
+.contact__inputs {
+  row-gap: 2.5rem; /* Spacing between input items */
 }
 
-.contact__box{
-  position: relative;
-  width: 100%;
-  height: 50px;
+/* Box styles for contact inputs */
+.contact__box {
+  position: relative; /* Positioning context for inputs */
+  width: 100%; /* Full width for inputs */
+  height: 50px; /* Fixed height */
 }
 
-.contact__input{
-  width: 100%;
-  height: 100%;
-  background-color: var(--body-second-color);
-  border: 2px solid var(--white-color);
-  font-weight: var(--font-semi-bold);
-  padding: .75rem;
-  color: var(--white-color);
+/* Styling individual contact input fields */
+.contact__input {
+  width: 100%; /* Full width input */
+  height: 100%; /* Full height input */
+  background-color: var(--body-second-color); /* Background color */
+  border: 2px solid var(--white-color); /* Border styling */
+  font-weight: var(--font-semi-bold); /* Font weight for input text */
+  padding: .75rem; /* Padding for input */
+  color: var(--white-color); /* Text color */
 }
 
-.contact__input::placeholder{
-  color: var(--white-color);
+/* Placeholder color for contact input */
+.contact__input::placeholder {
+  color: var(--white-color); /* Color for placeholder text */
 }
 
-.contact__label{
-  position: absolute;
-  top: -1.5rem;
-  left: 0;
-  color: var(--white-color);
-  font-size: var(--smaller-font-size);
-  font-weight: var(--font-semi-bold);
+/* Label styles for contact inputs */
+.contact__label {
+  position: absolute; /* Absolute positioning for labels */
+  top: -1.5rem; /* Positioning above input */
+  left: 0; /* Aligning to the left */
+  color: var(--white-color); /* Color for label */
+  font-size: var(--smaller-font-size); /* Font size for label */
+  font-weight: var(--font-semi-bold); /* Semi bold weight */
 }
 
-.contact__input:-webkit-autofill{
-  transition: background-color 6000s, color 6000s;
+/* Preventing color change on autofill for input */
+.contact__input:-webkit-autofill {
+  transition: background-color 6000s, color 6000s; /* Smooth transition to maintain styling */
 }
 
-.contact__button{
-  cursor: pointer;
+/* Button styling in contact form */
+.contact__button {
+  cursor: pointer; /* Pointer cursor for interactive button */
 }
 
-.contact__img{
-  width: 250px;
-  transform: skew(-12deg);
-  justify-self: center;
-  box-shadow: var(--shadow-img);
+/* Image styling within contact section */
+.contact__img {
+  width: 250px; /* Fixed width for contact image */
+  transform: skew(-12deg); /* Aesthetic skew effect */
+  justify-self: center; /* Centering image */
+  box-shadow: var(--shadow-img); /* Shadow effect for image */
 }
 
 /*=============== FOOTER ===============*/
-.footer{
-  background-color: var(--body-second-color);
-  padding-block: 2rem;
+/* Styles for the footer */
+.footer {
+  background-color: var(--body-second-color); /* Footer background color */
+  padding-block: 2rem; /* Padding above and below */
 }
 
-.footer__container{
-  row-gap: 3rem;
+/* Container styles for footer */
+.footer__container {
+  row-gap: 3rem; /* Spacing between footer items */
 }
 
-.footer__logo{
-  justify-self: flex-start;
-  color: var(--white-color);
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-bold);
+/* Logo styles in footer */
+.footer__logo {
+  justify-self: flex-start; /* Align logo to start */
+  color: var(--white-color); /* Logo color */
+  font-size: var(--h3-font-size); /* Font size for logo */
+  font-weight: var(--font-bold); /* Bold weight for logo */
 }
 
-.footer__links{
-  display: flex;
-  flex-direction: column;
-  row-gap: .5rem;
+/* Links container in footer */
+.footer__links {
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Column direction for layout */
+  row-gap: .5rem; /* Spacing between links */
 }
 
-.footer__link{
-  color: var(--white-color);
+/* Styling for individual footer links */
+.footer__link {
+  color: var(--white-color); /* Color for links */
 }
 
-.footer__social{
-  display: flex;
-  column-gap: .75rem;
+/* Social media icons container in footer */
+.footer__social {
+  display: flex; /* Flexbox for layout */
+  column-gap: .75rem; /* Space between social links */
 }
 
-.footer__social-link{
-  color: var(--white-color);
-  font-size: 1.5rem;
-  transition: transform .4s;
+/* Individual social link styles */
+.footer__social-link {
+  color: var(--white-color); /* Color for social links */
+  font-size: 1.5rem; /* Font size for icons */
+  transition: transform .4s; /* Transition effect for hover */
 }
 
-.footer__social-link:hover{
-  transform: translateY(-.25rem);
+/* Hover effect for social media links */
+.footer__social-link:hover {
+  transform: translateY(-.25rem); /* Lift effect on hover */
 }
 
-.footer__copy{
-  display: block;
-  margin-top: 6rem;
-  color: var(--white-color);
-  text-align: center;
-  font-size: var(--small-font-size);
+/* Copywrite styles in footer */
+.footer__copy {
+  display: block; /* Block display */
+  margin-top: 6rem; /* Margin above */
+  color: var(--white-color); /* Copy text color */
+  text-align: center; /* Centering text */
+  font-size: var(--small-font-size); /* Font size for copy text */
 }
 
 /*=============== SCROLL BAR ===============*/
-::-webkit-scrollbar{
-  width: .6rem;
-  background-color: hsl(0, 0%, 80%);
+/* Custom styling for webkit scrollbar */
+::-webkit-scrollbar {
+  width: .6rem; /* Width for scrollbar */
+  background-color: hsl(0, 0%, 80%); /* Background color for scrollbar */
 }
 
-::-webkit-scrollbar-thumb{
-  background-color: hsl(0, 0%, 60%);
+/* Styling for scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 60%); /* Color for scrollbar thumb */
 }
 
-::-webkit-scrollbar-thumb:hover{
-  background-color: hsl(0, 0%, 50%);
+/* Hover effect for scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 0%, 50%); /* Darker shade on hover */
 }
 
 /*=============== SCROLL UP ===============*/
-.scrollup{
-  position: fixed;
-  right: 1rem;
-  bottom: -50%;
-  background-color: var(--body-color);
-  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .1);
-  color: var(--black-color);
-  display: inline-flex;
-  padding: 6px;
-  font-size: 1.25rem;
-  z-index: var(--z-tooltip);
-  transition: bottom .4s, transform .4s;
+/* Styles for scroll-up button */
+.scrollup {
+  position: fixed; /* Keeps button fixed as the user scrolls */
+  right: 1rem; /* Positioning from the right */
+  bottom: -50%; /* Start off-screen */
+  background-color: var(--body-color); /* Background color for button */
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .1); /* Shadow effect */
+  color: var(--black-color); /* Text color */
+  display: inline-flex; /* Inline flexible display */
+  padding: 6px; /* Padding for button */
+  font-size: 1.25rem; /* Font size */
+  z-index: var(--z-tooltip); /* Z-index to ensure it layers correctly */
+  transition: bottom .4s, transform .4s; /* Transition for animations */
 }
 
-.scrollup:hover{
-  transform: translateY(-.5rem);
+/* Hover effect for scroll-up button */
+.scrollup:hover {
+  transform: translateY(-.5rem); /* Lift effect on hover */
 }
 
-/* Show Scroll Up */
-.show-scroll{
-  bottom: 3rem;
+/* Show scroll button when needed */
+.show-scroll {
+  bottom: 3rem; /* Position button above the bottom */
 }
 
 /*=============== BREAKPOINTS ===============*/
+/* Media queries for responsive design */
+
 /* For small devices */
-@media screen and (max-width: 320px){
-  .container{
-    margin-inline: 1rem;
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem; /* Adjust margin for smaller screens */
   }
 
-  .home__title{
-    font-size: 2rem;
+  .home__title {
+    font-size: 2rem; /* Adjust title size for smaller screens */
   }
-  .home__img{
-    width: 270px;
-  }
-
-  .about__video{
-    width: 200px;
-    height: 250px;
+  .home__img {
+    width: 270px; /* Adjust image width for smaller screens */
   }
 
-  .models__container{
-    grid-template-columns: 200px;
+  .about__video {
+    width: 200px; /* Adjust video size for responsive design */
+    height: 250px; /* Adjust height */
   }
 
-  .info__data{
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1rem;
+  .models__container {
+    grid-template-columns: 200px; /* Single-column layout for smaller screens */
   }
 
-  .contact__img{
-    width: 200px;
+  .info__data {
+    flex-direction: column; /* Stacking items for smaller screens */
+    align-items: center; /* Centering alignment */
+    row-gap: 1rem; /* Spacing in vertical stack */
+  }
+
+  .contact__img {
+    width: 200px; /* Adjust contact image size */
   }
 }
 
 /* For medium devices */
-@media screen and (min-width: 576px){
+@media screen and (min-width: 576px) {
   .about__container,
-  .contact__container{
-    grid-template-columns: 400px;
-    justify-content: center;
+  .contact__container {
+    grid-template-columns: 400px; /* Column layout for medium devices */
+    justify-content: center; /* Centering content */
   }
 
-  .footer__container{
-    grid-template-columns: repeat(3, max-content);
-    justify-content: space-between;
-    align-items: flex-start;
+  .footer__container {
+    grid-template-columns: repeat(3, max-content); /* Three columns in footer */
+    justify-content: space-between; /* Space distribution in footer */
+    align-items: flex-start; /* Align items to the top */
   }
 }
 
-@media screen and (min-width: 768px){
-  .models__container{
-    grid-template-columns: repeat(2, 250px);
+/* For larger devices */
+@media screen and (min-width: 768px) {
+  .models__container {
+    grid-template-columns: repeat(2, 250px); /* Two-column layout for models */
   }
 
-  .footer__links{
-    flex-direction: row;
-    column-gap: 1rem;
+  .footer__links {
+    flex-direction: row; /* Row layout for footer links */
+    column-gap: 1rem; /* Spacing between links */
   }
 }
 
 /* For large devices */
-@media screen and (min-width: 1150px){
-  .container{
-    margin-inline: auto;
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto; /* Centering container */
   }
 
-  .section{
-    padding-block: 7rem 2rem;
+  .section {
+    padding-block: 7rem 2rem; /* Increased spacing for large screens */
   }
-  .section__title{
-    margin-bottom: 4rem;
+  .section__title {
+    margin-bottom: 4rem; /* Adjust title margin */
   }
 
-  .nav{
-    height: calc(var(--header-height) + 2rem);
+  .nav {
+    height: calc(var(--header-height) + 2rem); /* Increased nav height */
   }
   .nav__toggle,
-  .nav__close{
-    display: none;
+  .nav__close {
+    display: none; /* Hiding toggle buttons in large devices */
   }
-  .nav__list{
-    flex-direction: row;
-    column-gap: 4rem;
-  }
-
-  .home{
-    height: 830px;
-  }
-  .home__subtitle{
-    font-size: var(--normal-font-size);
-    letter-spacing: 3px;
-  }
-  .home__title{
-    letter-spacing: 3px;
-  }
-  .home__img{
-    width: 600px;
-  }
-  .home__data{
-    top: 15rem;
-  }
-  .home__button{
-    bottom: 2rem;
-  }
-  .swiper{
-    margin-block-start: 1rem 0;
-  }
-  .swiper-pagination-bullets.swiper-pagination-horizontal{
-    top: 39rem;
-    column-gap: 2rem;
+  .nav__list {
+    flex-direction: row; /* Row layout for navigation links */
+    column-gap: 4rem; /* Spacing between links */
   }
 
-  .about__container{
-    grid-template-columns: 400px 450px;
-    align-items: center;
-    column-gap: 12rem;
-    padding-bottom: 5rem;
+  .home {
+    height: 830px; /* Adjusted height for large screens */
+  }
+  .home__subtitle {
+    font-size: var(--normal-font-size); /* Standard subtitle size */
+    letter-spacing: 3px; /* Adjusted letter spacing */
+  }
+  .home__title {
+    letter-spacing: 3px; /* Adjusted letter spacing */
+  }
+  .home__img {
+    width: 600px; /* Adjust image width for large displays */
+  }
+  .home__data {
+    top: 15rem; /* Adjust positioning for large screens */
+  }
+  .home__button {
+    bottom: 2rem; /* Adjust button position */
+  }
+  .swiper {
+    margin-block-start: 1rem 0; /* Spacing for swiper component */
+  }
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: 39rem; /* Positioning bullets in larger view */
+    column-gap: 2rem; /* Spacing for pagination bullets */
+  }
+
+  .about__container {
+    grid-template-columns: 400px 450px; /* Two columns in about section */
+    align-items: center; /* Centering items */
+    column-gap: 12rem; /* Spacing between columns */
+    padding-bottom: 5rem; /* Padding below about section */
   }
   .about__title,
-  .about__data{
-    text-align: initial;
+  .about__data {
+    text-align: initial; /* Left alignment for title and data */
   }
-  .about__title{
-    margin-bottom: 1rem;
+  .about__title {
+    margin-bottom: 1rem; /* Margin below title */
   }
-  .about__description{
-    margin-bottom: 3.5rem;
+  .about__description {
+    margin-bottom: 3.5rem; /* Margin below description */
   }
-  .about__video{
-    width: 450px;
-    height: 570px;
+  .about__video {
+    width: 450px; /* Adjust video size for larger screens */
+    height: 570px; /* Adjust height */
   }
-  .about__file{
-    height: 580px;
-  }
-
-  .models__container{
-    grid-template-columns: repeat(3, 250px);
-    column-gap: 2rem;
-  }
-  .models__data{
-    bottom: 2.5rem;
-    left: 2rem;
-  }
-  .models__info{
-    font-size: var(--normal-font-size);
+  .about__file {
+    height: 580px; /* Adjust file height */
   }
 
-  .info__container{
-    padding-bottom: 4rem;
+  .models__container {
+    grid-template-columns: repeat(3, 250px); /* Three columns for models */
+    column-gap: 2rem; /* Spacing between model cards */
   }
-  .info__title{
-    margin-bottom: 13rem;
+  .models__data {
+    bottom: 2.5rem; /* Positioning adjustment */
+    left: 2rem; /* Positioning adjustment */
   }
-  .info__img{
-    width: 800px;
-  }
-  .info__number{
-    top: -8.5rem;
-  }
-  .info__data{
-    column-gap: 4rem; 
-  }
-  .info__group h3{
-    font-size: var(--h3-font-size);
-  }
-  .info__group p{
-    font-size: var(--normal-font-size);
+  .models__info {
+    font-size: var(--normal-font-size); /* Normal font size for text */
   }
 
-  .contact__container{
-    grid-template-columns: 450px 500px;
-    align-items: center;
-    column-gap: 8rem;
-    padding-bottom: 4rem;
+  .info__container {
+    padding-bottom: 4rem; /* Padding adjustment for info section */
   }
-  .contact__img{
-    order: -1;
-    width: 450px;
+  .info__title {
+    margin-bottom: 13rem; /* Margin below info title */
   }
-  .contact_title{
-    text-align: initial;
+  .info__img {
+    width: 800px; /* Fixed width for image */
   }
-  .contact__button{
-    justify-self: flex-start;
+  .info__number {
+    top: -8.5rem; /* Adjust position above content */
   }
-
-  .footer{
-    padding-top: 3rem;
+  .info__data {
+    column-gap: 4rem; /* Spacing adjustment */
   }
-  .footer__logo{
-    font-size: var(--normal-font-size);
+  .info__group h3 {
+    font-size: var(--h3-font-size); /* Header font size for info */
   }
-  .footer__links{
-    column-gap: 2rem;
-  }
-  .footer__social{
-    column-gap: 1rem;
+  .info__group p {
+    font-size: var(--normal-font-size); /* Paragraph font size for info */
   }
 
-  .scrollup{
-    right: 3rem;
+  .contact__container {
+    grid-template-columns: 450px 500px; /* Two-column layout for contact */
+    align-items: center; /* Centering items */
+    column-gap: 8rem; /* Spacing between columns */
+    padding-bottom: 4rem; /* Padding below contact section */
+  }
+  .contact__img {
+    order: -1; /* Adjusting image order for layout */
+    width: 450px; /* Fixed width for contact image */
+  }
+  .contact__title {
+    text-align: initial; /* Left alignment for title */
+  }
+  .contact__button {
+    justify-self: flex-start; /* Align button to start */
+  }
+
+  .footer {
+    padding-top: 3rem; /* Increased padding at the top of the footer */
+  }
+  .footer__logo {
+    font-size: var(--normal-font-size); /* Normal size for footer logo */
+  }
+  .footer__links {
+    column-gap: 2rem; /* Spacing between footer links */
+  }
+  .footer__social {
+    column-gap: 1rem; /* Spacing for social links */
+  }
+
+  .scrollup {
+    right: 3rem; /* Adjust positioning for scroll button in large devices */
   }
 }
 
 /* For 2K resolutions (2048 x 1152, 2048 x 1536) */
-@media screen and (min-width: 2048px){
-  body{
-    zoom: 1.4;
+@media screen and (min-width: 2048px) {
+  body {
+    zoom: 1.4; /* Scaling body for enhanced visibility on high-resolution displays */
   }
 }
